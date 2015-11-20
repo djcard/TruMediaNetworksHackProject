@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Dan Card Tru Media Project</title>
+</head>
+<!---
+	Created by Dan Card as part of TruMedia interview process 2014/2015
+--->
+<link href="resources/bootstrap.css" rel="stylesheet" />
+<script src="resources/d3.js" type="text/javascript"></script>
+<script src="resources/customobject.js" type="text/javascript"></script>
+<script src="resources/tm.js" type="text/javascript"></script>
+<script src="data/playerinfo.js" type="text/javascript"></script>
+<link href="resources/bootstrap.css" rel="stylesheet" />
+<link href="resources/tm.css" rel="stylesheet" />
+
+
+<body onload="init()">
+	<div id="wrapper" class="col-lg-12">
+		<h1 id="playername">&nbsp;</h1>
+		<div id="toprow" class="col-lg-12">
+			<div id="leftcol" class="col-lg-3">
+				<div id="opponentsWRAP" class="col-lg-6">
+					<legend>2014 <span class="glyphicon glyphicon-question-sign" title="A list of the teams the selected player faced. Click to see the players' stats against that team. The corresponding games will highlight in the game by game display below."></span><br/> Opponents</legend>
+					<div id="opponents"></div>
+				</div>
+				<div id="montharea" class="col-lg-6">
+					<legend>Filter by Month <span class="glyphicon glyphicon-question-sign" title="Each month in the 2014 season. Click to see players' stats for that month. The corresponding games will highlight in the game by game display below."></span></legend>
+					<div id="monthlist"></div>
+				</div>
+			</div>
+			<div id="center" class="col-lg-8">
+				<legend>Stats Collections <span class="glyphicon glyphicon-question-sign" title="After you select filters from the left or games on the bottom, the summary of the thing you selected will appear here."></span></legend>
+				<div style="text-align:right">
+					<button onclick='resetlogos();resetGameVisuals();resetCenter()' class="btn btn-info btn-sm">Clear</button>
+				</div>
+				<div id="yearstatsWRAP" class="col-lg-12 statswrapper" >
+					<div class="col-lg-2 sidelabel" >2014 Year Stats</div>
+					<div id="yearstats" class="col-lg-8 statsarea" style="thin solid blue">&nbsp;</div>
+				</div>
+				<div id="centerlower">&nbsp</div>
+			</div>
+			<div id="rightcol" class="col-lg-1">
+				<legend>Player list <span class="glyphicon glyphicon-question-sign" title="Stats are Available for these players at this time."></span></legend>
+				<div id="playerchoice" class="col-lg-12" >&nbsp;</div>
+			</div>
+		</div>
+
+		<div class="col-lg-12" style="border:thin solid black">
+			<legend>Game By Game Display<span class="glyphicon glyphicon-question-sign"
+				title="When a player is chosen, the bar chart indicates At Bats, Hits and Home Runs. The Red bars across the top indicate hitting streaks. Transitions such as different months, player trades and the All Star Break are indicated via vertical lines."></span></legend>
+
+			<svg id="streaks" class="col-lg-12" height="10">&nbsp;</svg>
+			<svg id="yearhits" class="col-lg-12">&nbsp;</svg>
+		</div>
+		<div id="legend" class="col-lg-12" style="margin-top:10px; margin-bottom:5px;">
+			<div style="width:50px; height:20px; float:left;text-align:right">At Bats:</div><div id="atbatlegend" style="height:20px;width:50px;float:left">&nbsp;</div>
+			<div style="width:50px; height:20px; float:left; text-align:right">Hits:</div><div id="hitslegend" style="height:20px;width:50px;float:left">&nbsp;</div>
+			<div style="width:50px; height:20px; float:left; text-align:right">HRs:</div><div id="hrslegend" style="height:20px;width:50px;float:left">&nbsp;</div>
+			<div style="width:100px; height:20px; float:left; text-align:right">Month End:</div><div id="monthlegend" style="height:20px;width:50px;float:left">&nbsp;</div>
+			<div style="width:100px; height:20px; float:left; text-align:right">Player Traded:</div><div id="tradelegend" style="height:20px;width:50px;float:left">&nbsp;</div>
+			<div style="width:100px; height:20px; float:left; text-align:right">Hitting Streak:</div><div id="streaklegend" style="height:20px;width:50px;float:left">&nbsp;</div>
+			<div style="width:100px; height:20px; float:left; text-align:right">All Star Game:</div><div id="asglegend" style="height:20px;width:50px;float:left">&nbsp;</div>
+		</div>
+	</div>
+</body>
+</html>
